@@ -231,6 +231,7 @@ private enum SettingsSearchIndex {
         SettingsSearchEntry(tab: .general, title: "Hide Dynamic Island during screenshots & recordings", keywords: ["privacy", "screenshot", "recording"], highlightID: SettingsTab.general.highlightID(for: "Hide Dynamic Island during screenshots & recordings")),
         SettingsSearchEntry(tab: .general, title: "Enable Keep Awake", keywords: ["caffeinate", "keep awake", "prevent sleep", "insomnia", "no sleep"], highlightID: SettingsTab.general.highlightID(for: "Enable Keep Awake")),
         SettingsSearchEntry(tab: .general, title: "Pet trong Home", keywords: ["pet", "cat", "mèo", "idle", "home"], highlightID: SettingsTab.general.highlightID(for: "Pet trong Home")),
+        SettingsSearchEntry(tab: .general, title: "Hiệu ứng kính", keywords: ["glass", "semi", "soft", "kính", "nền"], highlightID: SettingsTab.general.highlightID(for: "Hiệu ứng kính")),
         SettingsSearchEntry(tab: .general, title: "Show Keep Awake icon in the notch", keywords: ["caffeinate", "keep awake", "icon", "notch"], highlightID: SettingsTab.general.highlightID(for: "Show Keep Awake icon in the notch")),
         SettingsSearchEntry(tab: .general, title: "Default duration", keywords: ["caffeinate", "keep awake", "duration", "timeout"], highlightID: SettingsTab.general.highlightID(for: "Default duration")),
         SettingsSearchEntry(tab: .general, title: "Also keep the display awake", keywords: ["caffeinate", "keep awake", "display sleep", "screen"], highlightID: SettingsTab.general.highlightID(for: "Also keep the display awake")),
@@ -1165,6 +1166,18 @@ struct GeneralSettings: View {
     @Default(.hideNonNotchUntilHover) var hideNonNotchUntilHover
     @Default(.enableCaffeinate) var enableCaffeinate
     @Default(.caffeinateDefaultDuration) var caffeinateDefaultDuration
+    @Default(.enableLocalGlass) private var enableLocalGlass
+    @Default(.localGlassStyle) private var localGlassStyle
+
+    private var glassStyleBinding: Binding<LocalGlassStyle> {
+        Binding(
+            get: { enableLocalGlass ? localGlassStyle : .off },
+            set: { style in
+                enableLocalGlass = style != .off
+                if style != .off { localGlassStyle = style }
+            }
+        )
+    }
 
     private func highlightID(_ title: String) -> String {
         SettingsTab.general.highlightID(for: title)
@@ -1185,10 +1198,13 @@ struct GeneralSettings: View {
                 .settingsHighlight(id: highlightID("Enable Minimalistic UI"))
 
                 if Bundle.main.object(forInfoDictionaryKey: "AtollLocalOfflineBuild") as? Bool == true {
-                    Defaults.Toggle(key: .enableLocalGlass) {
-                        Text("Hiệu ứng kính")
+                    Picker("Hiệu ứng kính", selection: glassStyleBinding) {
+                        ForEach(LocalGlassStyle.allCases, id: \.self) { style in
+                            Text(style.title).tag(style)
+                        }
                     }
-                    Text("Áp dụng ngay cho notch và bảng hẹn giờ, giữ máy thức.")
+                    .settingsHighlight(id: highlightID("Hiệu ứng kính"))
+                    Text("Kính mềm trong hơn; Semi Glass dịu hơn, tăng độ rõ của chữ. Áp dụng ngay.")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     Defaults.Toggle(key: .enableLocalIdlePet) {

@@ -1,0 +1,19 @@
+ATOLL LOCAL — APPLE SILICON
+
+Cần Mac chip M1 trở lên, macOS 14.6 trở lên. Không cần Xcode để sử dụng.
+
+1. Kéo Atoll Local.app vào Applications.
+2. Mở Atoll Local từ Applications, rồi tháo ổ đĩa DMG.
+3. Chỉ cấp các quyền macOS cần cho những tính năng bạn sử dụng.
+
+Semi Glass: mở Cài đặt > General > Hiệu ứng kính > Semi Glass.
+
+Bản này được ký trên máy phát triển, chưa có notarization của Apple.
+Mac khác có thể chặn lần mở đầu; xem thông báo trong System Settings > Privacy & Security.
+Không cần tắt Gatekeeper hoặc cơ chế bảo vệ toàn hệ thống.
+
+Atoll-Local-Source.zip chứa source của bản này, kèm nguồn phụ thuộc và giấy phép.
+Repo có thể giữ private; khi gửi app cho người khác, gửi kèm source tương ứng và giấy phép GPL.
+Các tài nguyên/thành phần bên thứ ba giữ giấy phép riêng được ghi nhận trong source và app.
+
+Atoll Local chặn kết nối IP; các tính năng cần mạng không khả dụng trong bản này.

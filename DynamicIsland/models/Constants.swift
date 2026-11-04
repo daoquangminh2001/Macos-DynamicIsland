@@ -987,6 +987,7 @@ extension Defaults.Keys {
     static let logLevel = Key<LogLevel>("logLevel", default: .none)
     static let menubarIcon = Key<Bool>("menubarIcon", default: true)
     static let enableLocalGlass = Key<Bool>("enableLocalGlass", default: true)
+    static let localGlassStyle = Key<LocalGlassStyle>("localGlassStyle", default: .soft)
     static let enableLocalIdlePet = Key<Bool>("enableLocalIdlePet", default: true)
     static let showOnAllDisplays = Key<Bool>("showOnAllDisplays", default: false)
     static let automaticallySwitchDisplay = Key<Bool>("automaticallySwitchDisplay", default: true)
