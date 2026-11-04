@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8AC1055A0000000000000001 /* LocalGlassSurfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC1055A0000000000000002 /* LocalGlassSurfaceTests.swift */; };
 		63A78415C5726BE9C806EFAF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C39E67B09152F6665ED683 /* Cocoa.framework */; };
 		6B8DE5BE065E4BFE9E531A74 /* MarqueeTextMeasurementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC2ACF06B40405DB1A8F99E /* MarqueeTextMeasurementTests.swift */; };
 		738C4EBB63E3449B923997D0 /* MenuBarClearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB37667F763422E97DEEB49 /* MenuBarClearanceTests.swift */; };
@@ -81,6 +82,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8AC1055A0000000000000002 /* LocalGlassSurfaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalGlassSurfaceTests.swift; sourceTree = "<group>"; };
 		0796C681D7B557C0110EC381 /* DynamicIslandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicIslandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2137D0F9431A495AA62ACE96 /* NowPlayingPayloadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingPayloadTests.swift; sourceTree = "<group>"; };
 		2EB37667F763422E97DEEB49 /* MenuBarClearanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarClearanceTests.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 		50983E4A1FCC1F5E2220FF8A /* DynamicIslandTests */ = {
 			isa = PBXGroup;
 			children = (
+				8AC1055A0000000000000002 /* LocalGlassSurfaceTests.swift */,
 				9A7D1A022F90000200A71002 /* AudioTapTests.swift */,
 				A4B5C6D7E8F90123456789AC /* AppleMusicControllerTests.swift */,
 				C0DEFACE1234567890ABCDEF /* FlyoutFrameCalculatorTests.swift */,
@@ -509,6 +512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A7D1A012F90000200A71001 /* AudioTapTests.swift in Sources */,
+				8AC1055A0000000000000001 /* LocalGlassSurfaceTests.swift in Sources */,
 				A4B5C6D7E8F90123456789AB /* AppleMusicControllerTests.swift in Sources */,
 				B4777BB9FE29243B253B8306 /* SpotifyLibraryTests.swift in Sources */,
 				A1C0FFEE0003000000000001 /* PinnedLyricsTests.swift in Sources */,

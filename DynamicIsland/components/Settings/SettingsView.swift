@@ -1204,7 +1204,7 @@ struct GeneralSettings: View {
                         }
                     }
                     .settingsHighlight(id: highlightID("Hiệu ứng kính"))
-                    Text("Kính mềm trong hơn; Semi Glass dịu hơn, tăng độ rõ của chữ. Áp dụng ngay.")
+                    Text("Semi Glass bán trong với viền nhẹ. Áp dụng ngay cho khung camera và bảng tiện ích.")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     Defaults.Toggle(key: .enableLocalIdlePet) {

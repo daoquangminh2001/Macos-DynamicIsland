@@ -30,7 +30,7 @@ struct LocalGlassSurface<Surface: Shape>: View {
                         shape.fill(
                             LinearGradient(
                                 colors: style == .semi
-                                    ? [.black.opacity(0.30), .black.opacity(0.24), .black.opacity(0.32)]
+                                    ? [.white.opacity(0.10), .white.opacity(0.02), .black.opacity(0.14)]
                                     : [.black.opacity(0.20), .black.opacity(0.14), .black.opacity(0.24)],
                                 startPoint: .topLeading, endPoint: .bottomTrailing
                             )
@@ -61,8 +61,13 @@ struct LocalGlassSurface<Surface: Shape>: View {
     @ViewBuilder
     private var softGlass: some View {
         if style == .semi {
-            LocalSoftGlassBackdrop(material: .underWindowBackground, opacity: 0.65)
-                .clipShape(shape)
+            if #available(macOS 26.0, *) {
+                LocalSoftGlassBackdrop(opacity: 0.38)
+                    .glassEffect(.clear.tint(.white.opacity(0.06)), in: shape)
+            } else {
+                LocalSoftGlassBackdrop(opacity: 0.38)
+                    .clipShape(shape)
+            }
         } else if #available(macOS 26.0, *) {
             LocalSoftGlassBackdrop()
                 .glassEffect(.clear, in: shape)
