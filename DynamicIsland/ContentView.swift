@@ -38,6 +38,7 @@ import UIKit
 struct ContentView: View {
     @Environment(\.colorScheme) private var colorScheme
     @Default(.enableLocalGlass) private var enableLocalGlass
+    @Default(.localGlassStyle) private var localGlassStyle
     @Default(.pinnedLyricContext) private var pinnedLyricContext
     @Default(.pinLyricsWhenClosed) private var pinLyricsWhenClosed
     @Default(.enableLyrics) private var enableLyrics
@@ -740,7 +741,8 @@ struct ContentView: View {
             }
             .compositingGroup()
             .shadow(
-                color: ((vm.notchState == .open || isHovering) && Defaults[.enableShadow])
+                color: ((vm.notchState == .open || isHovering) && Defaults[.enableShadow]
+                        && !(isLocalBuild && enableLocalGlass && localGlassStyle == .semi))
                     ? .black.opacity(0.6)
                     : .clear,
                 radius: Defaults[.cornerRadiusScaling] ? 10 : 5

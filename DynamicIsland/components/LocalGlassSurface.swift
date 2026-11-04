@@ -29,9 +29,14 @@ struct LocalGlassSurface<Surface: Shape>: View {
                     .overlay {
                         shape.fill(
                             LinearGradient(
-                                colors: style == .semi
-                                    ? [.black.opacity(0.82), .black.opacity(0.40), .black.opacity(0.08)]
-                                    : [.black.opacity(0.20), .black.opacity(0.14), .black.opacity(0.24)],
+                                stops: style == .semi
+                                    ? [.init(color: .black, location: 0),
+                                       .init(color: .black, location: 0.20),
+                                       .init(color: .black.opacity(0.50), location: 0.55),
+                                       .init(color: .clear, location: 1)]
+                                    : [.init(color: .black.opacity(0.20), location: 0),
+                                       .init(color: .black.opacity(0.14), location: 0.5),
+                                       .init(color: .black.opacity(0.24), location: 1)],
                                 startPoint: style == .semi ? .top : .topLeading,
                                 endPoint: style == .semi ? .bottom : .bottomTrailing
                             )
@@ -41,7 +46,7 @@ struct LocalGlassSurface<Surface: Shape>: View {
                         shape.stroke(
                             LinearGradient(
                                 colors: style == .semi
-                                    ? [.white.opacity(0.38), .white.opacity(0.08), .white.opacity(0.20)]
+                                    ? [.white.opacity(0.12), .white.opacity(0.03), .clear]
                                     : [.white.opacity(0.65), .white.opacity(0.10), .white.opacity(0.30)],
                                 startPoint: .topLeading, endPoint: .bottomTrailing
                             ),
@@ -49,6 +54,17 @@ struct LocalGlassSurface<Surface: Shape>: View {
                         )
                     }
                     .clipShape(shape)
+            }
+        }
+        .mask {
+            if enabled && style == .semi && !reduceTransparency {
+                LinearGradient(stops: [
+                    .init(color: .black, location: 0),
+                    .init(color: .black, location: 0.45),
+                    .init(color: .clear, location: 1)
+                ], startPoint: .top, endPoint: .bottom)
+            } else {
+                Color.black
             }
         }
         .id(style)
