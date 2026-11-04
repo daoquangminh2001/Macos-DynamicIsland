@@ -31,7 +31,9 @@ plist = File.join(destination, 'Contents/Info.plist')
 {
   'CFBundleIdentifier' => 'local.atoll.private',
   'CFBundleName' => 'Atoll Local',
-  'CFBundleDisplayName' => 'Atoll Local'
+  'CFBundleDisplayName' => 'Atoll Local',
+  # MediaRemoteAdapter bundled with the app requires macOS 15.
+  'LSMinimumSystemVersion' => '15.0'
 }.each { |key, value| run('/usr/bin/plutil', '-replace', key, '-string', value, plist) }
 run('/usr/bin/plutil', '-replace', 'AtollLocalOfflineBuild', '-bool', 'YES', plist)
 run('/usr/bin/codesign', '--force', '--deep', '--timestamp=none', '--sign', signing_identity, destination)

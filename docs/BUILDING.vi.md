@@ -1,6 +1,6 @@
 # Dựng và đóng gói Atoll Local
 
-Bản cài dành cho Apple Silicon (M1 trở lên), macOS 14.6 trở lên. Người dùng bản cài không cần Xcode.
+Bản cài dành cho Apple Silicon (M1 trở lên), macOS 15 trở lên vì framework đọc thông tin media đi kèm yêu cầu phiên bản này. Người dùng bản cài không cần Xcode.
 
 ## Một lệnh đóng gói
 

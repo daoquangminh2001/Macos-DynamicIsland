@@ -1,6 +1,6 @@
 ATOLL LOCAL — APPLE SILICON
 
-Cần Mac chip M1 trở lên, macOS 14.6 trở lên. Không cần Xcode để sử dụng.
+Cần Mac chip M1 trở lên, macOS 15 trở lên. Không cần Xcode để sử dụng.
 
 1. Kéo Atoll Local.app vào Applications.
 2. Mở Atoll Local từ Applications, rồi tháo ổ đĩa DMG.
