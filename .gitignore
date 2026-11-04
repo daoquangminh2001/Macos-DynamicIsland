@@ -1,0 +1,53 @@
+# Build output and downloaded dependencies
+.build/
+.swiftpm/
+build/
+DerivedData/
+Pods/
+Carthage/Build/
+*.app
+*.dmg
+*.ipa
+*.xcarchive
+*.dSYM
+*.dSYM.zip
+*.xctest
+
+# Xcode and editor state
+.DS_Store
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+.vscode/
+.idea/
+.xcede/
+.xcrc
+buildServer.json
+
+# Local caches and temporary output
+.codegraph/
+.codebase-memory/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.profraw
+*.swp
+*.swo
+*.tmp
+*.log
+
+# Local credentials and signing material
+.env
+.env.*
+!.env.example
+!.env.sample
+*.p12
+*.pfx
+*.key
+*.pem
+*.mobileprovision

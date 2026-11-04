@@ -1,0 +1,20 @@
+(version 1)
+(allow default)
+; Block IP networking in Atoll and children while preserving local Unix IPC for macOS UI.
+(deny network-outbound (remote ip "*:*"))
+(deny network-inbound (local ip "*:*"))
+(deny network-bind (local ip "*:*"))
+(deny mach-lookup
+    (global-name "com.apple.securityd")
+    (global-name "com.apple.securityd.xpc")
+    (global-name "com.apple.securityd.system"))
+(deny file-read* file-write*
+    (subpath (string-append (param "USER_HOME") "/.claude"))
+    (literal (string-append (param "USER_HOME") "/.claude.json"))
+    (subpath (string-append (param "USER_HOME") "/.codex"))
+    (subpath (string-append (param "USER_HOME") "/.config/codex"))
+    (subpath (string-append (param "USER_HOME") "/.ssh"))
+    (subpath (string-append (param "USER_HOME") "/.aws"))
+    (subpath (string-append (param "USER_HOME") "/Library/Keychains"))
+    (subpath (string-append (param "USER_HOME") "/Library/Application Support/Cursor"))
+    (subpath (string-append (param "USER_HOME") "/Library/Application Support/Antigravity")))
