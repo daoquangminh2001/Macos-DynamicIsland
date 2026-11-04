@@ -30,7 +30,7 @@ struct LocalGlassSurface<Surface: Shape>: View {
                         shape.fill(
                             LinearGradient(
                                 colors: style == .semi
-                                    ? [.white.opacity(0.10), .white.opacity(0.02), .black.opacity(0.14)]
+                                    ? [.black.opacity(0.38), .black.opacity(0.34), .black.opacity(0.40)]
                                     : [.black.opacity(0.20), .black.opacity(0.14), .black.opacity(0.24)],
                                 startPoint: .topLeading, endPoint: .bottomTrailing
                             )
